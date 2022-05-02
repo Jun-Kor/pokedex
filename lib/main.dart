@@ -18,21 +18,21 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Material App',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.red,
-      ),
-      home: MultiBlocProvider(
-        providers: [
-          BlocProvider<PokemonBloc>(
-              create: (context) =>
-                  PokemonBloc()..add(const PokemonPageRequestEvent(page: 0))),
-          BlocProvider<PokemonDetailsBloc>(
-              create: (context) => PokemonDetailsBloc()),
-        ],
-        child: const PokedexView(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<PokemonBloc>(
+            create: (context) =>
+                PokemonBloc()..add(const PokemonPageRequestEvent(page: 0))),
+        BlocProvider<PokemonDetailsBloc>(
+            create: (context) => PokemonDetailsBloc()),
+      ],
+      child: MaterialApp(
+        title: 'Material App',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          primarySwatch: Colors.red,
+        ),
+        home: const PokedexView(),
       ),
     );
   }

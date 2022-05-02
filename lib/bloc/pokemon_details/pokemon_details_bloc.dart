@@ -29,7 +29,6 @@ class PokemonDetailsBloc
       _pokemonRepository.getPokemonInfo(event.pokemonId),
       _pokemonRepository.getPokemonSpeciesInfo(event.pokemonId),
     ]);
-    print(responses);
     final pokemonInfo = responses[0] as PokemonInfoResponse;
     final speciesInfo = responses[1] as PokemonSpeciesInfoResponse;
     try {
